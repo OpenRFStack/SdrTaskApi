@@ -414,6 +414,7 @@ struct StreamMetrics {
     uint64_t    samples_total   = 0;   ///< Total samples delivered since task start.
     uint64_t    packets_sent    = 0;   ///< Total UDP packets sent.
     uint32_t    overflows       = 0;   ///< SoapySDR overflow count.
+    uint64_t    packets_dropped = 0;   ///< Packets produced but not accepted by the socket (send-buffer full, receiver not bound).
     float       rssi_dbfs       = 0.0f; ///< Instantaneous RSSI (dBFS).
     double      throughput_mbps = 0.0;  ///< Current UDP throughput (Mbps).
 };

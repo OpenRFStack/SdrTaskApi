@@ -213,7 +213,7 @@ std::string MessageCodec::encodeTaskStatus(const TaskRecord& rec, const std::vec
         {"stream_id",s.stream_id},{"channel_type",s.channel_type},
         {"channel_index",s.channel_index},{"udp_port",s.udp_port},
         {"metrics",{{"samples_total",s.samples_total},{"packets_sent",s.packets_sent},
-                    {"overflows",s.overflows},{"rssi_dbfs",s.rssi_dbfs},
+                    {"overflows",s.overflows},{"packets_dropped",s.packets_dropped},{"rssi_dbfs",s.rssi_dbfs},
                     {"throughput_mbps",s.throughput_mbps}}}
     });
     json j={
