@@ -1,0 +1,127 @@
+---
+# Modern C++ style, based on LLVM with common readability tweaks.
+Language: Cpp
+BasedOnStyle: LLVM
+Standard: Latest
+
+# Indentation
+IndentWidth: 4
+TabWidth: 4
+UseTab: Never
+ContinuationIndentWidth: 4
+AccessModifierOffset: -4
+IndentCaseLabels: true
+IndentPPDirectives: AfterHash
+IndentWrappedFunctionNames: false
+NamespaceIndentation: None
+
+# Line length
+ColumnLimit: 100
+
+# Braces: opening brace always on its own line (Allman style)
+BreakBeforeBraces: Custom
+BraceWrapping:
+  AfterCaseLabel: true
+  AfterClass: true
+  AfterControlStatement: Always
+  AfterEnum: true
+  AfterExternBlock: true
+  AfterFunction: true
+  AfterNamespace: true
+  AfterStruct: true
+  AfterUnion: true
+  BeforeCatch: true
+  BeforeElse: true
+  BeforeLambdaBody: true
+  BeforeWhile: false
+  IndentBraces: false
+  SplitEmptyFunction: true
+  SplitEmptyRecord: true
+  SplitEmptyNamespace: true
+InsertBraces: false
+
+# Short constructs (none on one line, so every brace gets its own line)
+AllowShortBlocksOnASingleLine: Never
+AllowShortCaseLabelsOnASingleLine: false
+AllowShortEnumsOnASingleLine: false
+AllowShortFunctionsOnASingleLine: None
+AllowShortIfStatementsOnASingleLine: Never
+AllowShortLambdasOnASingleLine: None
+AllowShortLoopsOnASingleLine: false
+
+# Alignment
+AlignAfterOpenBracket: Align
+AlignConsecutiveAssignments: Consecutive
+AlignConsecutiveDeclarations: Consecutive
+AlignConsecutiveMacros: Consecutive
+AlignEscapedNewlines: Left
+AlignOperands: Align
+AlignTrailingComments: true
+
+# Pointers and references: int* p, int& r
+DerivePointerAlignment: false
+PointerAlignment: Left
+ReferenceAlignment: Pointer
+
+# Breaking
+AlwaysBreakTemplateDeclarations: Yes
+BreakConstructorInitializers: BeforeComma
+BreakInheritanceList: BeforeComma
+BreakBeforeBinaryOperators: NonAssignment
+BreakBeforeTernaryOperators: true
+BinPackArguments: false
+BinPackParameters: false
+PackConstructorInitializers: Never
+AllowAllArgumentsOnNextLine: true
+AllowAllParametersOfDeclarationOnNextLine: true
+
+# Spacing
+SpaceAfterCStyleCast: false
+SpaceAfterTemplateKeyword: true
+SpaceBeforeAssignmentOperators: true
+SpaceBeforeParens: ControlStatements
+SpaceBeforeRangeBasedForLoopColon: true
+SpaceInEmptyParentheses: false
+SpacesInAngles: Never
+SpacesInContainerLiterals: false
+SpacesBeforeTrailingComments: 2
+Cpp11BracedListStyle: true
+
+# Includes: sorted and grouped (project, then third-party, then system)
+SortIncludes: CaseSensitive
+IncludeBlocks: Regroup
+IncludeCategories:
+  - Regex: '^"'
+    Priority: 1
+  - Regex: '^<.*\.(h|hpp|hxx)>'
+    Priority: 2
+  - Regex: '^<[a-z_]+>'
+    Priority: 3
+  - Regex: '.*'
+    Priority: 4
+SortUsingDeclarations: LexicographicNumeric
+
+# Blank lines
+MaxEmptyLinesToKeep: 1
+KeepEmptyLinesAtTheStartOfBlocks: false
+SeparateDefinitionBlocks: Always
+EmptyLineBeforeAccessModifier: LogicalBlock
+
+# Misc
+FixNamespaceComments: true
+ShortNamespaceLines: 0
+QualifierAlignment: Left  # west const: const int x
+ReflowComments: true
+
+# Code rewriting
+InsertNewlineAtEOF: true
+RemoveSemicolon: true                 # drop redundant ; after function bodies etc.
+RemoveParentheses: ReturnStatement    # return (x); -> return x;
+IntegerLiteralSeparator:              # 1000000 -> 1'000'000
+  Binary: 4
+  BinaryMinDigits: 9
+  Decimal: 3
+  DecimalMinDigits: 5
+  Hex: 4
+  HexMinDigits: 9
+...
