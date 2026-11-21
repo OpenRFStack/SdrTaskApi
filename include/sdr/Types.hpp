@@ -560,14 +560,16 @@ struct TaskRecord
     struct DeviceAllocation
     {
         std::string      device_id;
-        std::vector<int> rx_channels;                   ///< Physical RX channel indices.
-        std::vector<int> tx_channels;                   ///< Physical TX channel indices.
-        std::vector<int> udp_ports;                     ///< Allocated UDP ports.
-        double           center_freq_hz         = 0.0;  ///< Device LO frequency.
-        double           sample_rate_sps        = 0.0;  ///< Device (wideband) sample rate.
-        double           output_sample_rate_sps = 0.0;  ///< After DDC; 0 = same as device rate.
-        double           slice_lo_hz            = 0.0;  ///< Lower edge of the allocated slice.
-        double           slice_hi_hz            = 0.0;  ///< Upper edge of the allocated slice.
+        std::vector<int> rx_channels;  ///< Physical RX channel indices.
+        std::vector<int> tx_channels;  ///< Physical TX channel indices.
+        std::vector<int> udp_ports;    ///< Allocated UDP ports.
+        std::vector<int> pool_ports;   ///< Subset of udp_ports taken from the RM's port pool
+                                       ///< (released at teardown); the rest are client ports.
+        double center_freq_hz         = 0.0;  ///< Device LO frequency.
+        double sample_rate_sps        = 0.0;  ///< Device (wideband) sample rate.
+        double output_sample_rate_sps = 0.0;  ///< After DDC; 0 = same as device rate.
+        double slice_lo_hz            = 0.0;  ///< Lower edge of the allocated slice.
+        double slice_hi_hz            = 0.0;  ///< Upper edge of the allocated slice.
     };
 
     std::vector<DeviceAllocation> allocations;  ///< One entry per participating device.
